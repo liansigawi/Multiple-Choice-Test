@@ -48,15 +48,15 @@ Number of guesses: 7
 Do you want to play again? (yes/no):
 
 ---
-##🧠 Concepts Practiced
-Object-Oriented Programming (OOP)
+## 🧠 Concepts Practiced
+-Object-Oriented Programming (OOP)
 
-Arrays and String manipulation
+-Arrays and String manipulation
 
-Randomization
+-Randomization
 
-Console I/O and input validation
+-Console I/O and input validation
 
-Basic game loop structure
+-Basic game loop structure
 
 
