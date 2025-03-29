@@ -33,3 +33,30 @@ java Game
 ---
 
 ## 🕹️ Example Gameplay
+Welcome to Word Guessing Game!
+Guess the word one letter at a time.
+Remaining letters: abcdefghijklmnopqrstuvwxyz
+Enter a letter: a
+Incorrect guess. Try again.
+Remaining letters: bcdefghijklmnopqrstuvwxyz
+Enter a letter: e
+Correct guess!
+Word: __e__e
+...
+Congratulations! You've guessed the word: green
+Number of guesses: 7
+Do you want to play again? (yes/no):
+
+---
+##🧠 Concepts Practiced
+Object-Oriented Programming (OOP)
+
+Arrays and String manipulation
+
+Randomization
+
+Console I/O and input validation
+
+Basic game loop structure
+
+
