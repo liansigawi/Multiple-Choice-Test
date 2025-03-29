@@ -1,0 +1,14 @@
+import java.util.Random;
+
+
+public class ChoosenWord extends WordPool {
+
+	public String choosenWord() {
+		Random random = new Random();
+		int randomIndex = random.nextInt(wordpool.length);
+		return wordpool[randomIndex];
+		
+	}
+	
+	
+}
