@@ -29,3 +29,7 @@ Make sure you have Java installed. Then compile and run:
 ```bash
 javac Game.java
 java Game
+```
+---
+
+## 🕹️ Example Gameplay
