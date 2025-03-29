@@ -49,19 +49,19 @@ Do you want to play again? (yes/no):
 
 ---
 ## 🧠 Concepts Practiced
--Object-Oriented Programming (OOP)
--Arrays and String manipulation
--Randomization
--Console I/O and input validation
--Basic game loop structure
+- Object-Oriented Programming (OOP)
+- Arrays and String manipulation
+- Randomization
+- Console I/O and input validation
+- Basic game loop structure
 
 ---
 
 ## 🚀 Future Ideas
--Add difficulty levels
--Load words from an external file
--Support multiplayer or timed mode
--Add a graphical user interface (GUI)
+- Add difficulty levels
+- Load words from an external file
+- Support multiplayer or timed mode
+- Add a graphical user interface (GUI)
 
 ---
 
