@@ -1,0 +1,145 @@
+import java.util.Arrays;
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
+
+// Game class contains the game logic
+public class Game extends ChoosenWord{
+	private static String word;
+
+    private static final int MAX_TRIES = 10; // Maximum allowed attempts
+    
+    public Game() {
+    	
+    	word = choosenWord();
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in); 
+        boolean playAgain = true; // Allows the user to play the game again
+
+        while (playAgain) {
+        	Game game = new Game(); 
+        	char[] guessedWord = new char[word.length()]; // array Represents the guessed word
+            Arrays.fill(guessedWord, '_'); // Initialize guessed word with underscores
+            char[] remainingLetters = initializeRemainingLetters(); // Initialize remaining letters
+
+            int attempts = 0; 
+            boolean ifWordGuessed = false; // Indicates if the word is guessed correctly
+
+            // Welcome message
+            System.out.println("Welcome to Word Guessing Game!");
+            System.out.println("Guess the word one letter at a time.");
+            
+
+            while (attempts < MAX_TRIES && !ifWordGuessed) {
+                // Show the remaining letters that can be guessed
+                System.out.println("Remaining letters: " + new String(remainingLetters));
+                char guess = getValidGuess(scanner, remainingLetters); // Get a valid letter guess
+                
+                
+
+                if (String.valueOf(guessedWord).contains(String.valueOf(guess))) {
+                    System.out.println("Correct guess!");
+                } else {
+                    System.out.println("Incorrect guess. Try again.");
+                    attempts++; // Increment the attempts
+                }
+
+               printWordStatus(guessedWord,guess); // Display the current state of the guessed word
+
+                if (Arrays.equals(guessedWord, word.toCharArray())) {
+                    // If the guessed word matches the target word, the player wins
+                    ifWordGuessed = true;
+                    System.out.println("Congratulations! You've guessed the word: " + new String(guessedWord));
+
+                }
+            }
+
+            if (!ifWordGuessed) {
+                // If the word is not guessed within the allowed attempts, reveal the word
+                System.out.println("Out of attempts. The word was: " + word);
+            }
+
+            // Display the number of guesses made
+            System.out.println("Number of guesses: " + attempts);
+
+            // Ask the player if they want to play again
+            System.out.print("Do you want to play again? (yes/no): ");
+            String playAgainInput = scanner.next().toLowerCase();
+            playAgain = playAgainInput.equals("yes");
+        }
+
+        // End of the game
+        System.out.println("Thanks for playing!");
+        scanner.close(); // Close the scanner
+    }
+
+
+
+    // display the current state of the guessed word
+    private static void printWordStatus(char[] guessedWord, char guess) {
+    	for (int i = 0; i < word.length(); i++) {
+            if (word.charAt(i) == guess) {
+                guessedWord[i] = guess;
+                System.out.println("Correct guess!");
+                System.out.println("Word: " + new String(guessedWord));
+           
+               
+            }
+        }
+    }
+        
+
+    
+    // initialize an array with remaining letters (a-z)
+    private static char[] initializeRemainingLetters() {
+        char[] letters = new char[26];
+        for (char c = 'a'; c <= 'z'; c++) {
+            letters[c - 'a'] = c;
+        }
+        return letters;
+    }
+
+    // get a valid letter guess from the player
+    private static char getValidGuess(Scanner scanner, char[] remainingLetters) {
+        char guess;
+        while (true) {
+            System.out.print("Enter a letter: ");
+            String input = scanner.next().toLowerCase();
+            if (input.length() != 1 || !Character.isLetter(input.charAt(0))) {
+                System.out.println("Invalid input. Please enter a single letter.");
+            } else {
+                guess = input.charAt(0);
+                if (!contains(remainingLetters, guess)) {
+                    System.out.println("Letter already guessed. Try again.");
+                } else {
+                    removeLetter(remainingLetters, guess);
+                    break;
+                }
+            }
+        }
+        return guess;
+    }
+
+
+    // check if a character exists in an array
+    private static boolean contains(char[] array, char target) {
+        for (char item : array) {
+            if (item == target) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //remove a letter from an array
+    private static void removeLetter(char[] array, char letter) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == letter) {
+                array[i] = '\0'; // Null character represents an empty slot
+                break;
+            }
+        }
+    }
+}
